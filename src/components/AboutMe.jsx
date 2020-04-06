@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import Pdf from "../editable-stuff/resume.pdf";
+import Jpg from "../editable-stuff/shlomi.jpg";
 
 const AboutMe = () => {
   const [heading] = useState("About me");
@@ -11,6 +12,7 @@ const AboutMe = () => {
   const [instaProfilePic, setInstaProfilePic] = useState("");
   const [showInsta, setShowInsta] = useState(Configs.showInstaProfilePic);
   const [resumeURL] = useState(Pdf);
+  const [jpgURL] = useState(Jpg);	
 
   useEffect(() => {
     if (showInsta) {
@@ -25,7 +27,8 @@ const AboutMe = () => {
         // handle success
         // console.log(response.data.graphql);
         return setInstaProfilePic(
-          response.data.graphql.user.profile_pic_url_hd
+           jpgURL
+           //response.data.graphql.user.profile_pic_url_hd
         );
       })
       .catch(error => {
